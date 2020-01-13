@@ -15,6 +15,7 @@ app.get("/hola/en",(req,res)=>{
   console.log(req);
   res.json({mensaje:"Hello Wolrd"})
 });
+require("./rutas.js")(app);
 app.listen(1111,()=>{
   console.log("servidor iniciado");
 });
