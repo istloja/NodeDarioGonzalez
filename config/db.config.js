@@ -2,9 +2,9 @@ module.exports={
   // ip
   Host:"localhost",
   // usuario
-  User:"Dax",
+  User:"root",
   // contraseña
-  Password:"Blooddax2000",
+  Password:"rootdx2000",
   // base de datos
   BD: "biblioteca",
 };
