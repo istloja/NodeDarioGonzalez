@@ -6,5 +6,5 @@ module.exports={
   // contraseña
   Password:"rootdx2000",
   // base de datos
-  BD: "biblioteca",
+  bd: "biblioteca",
 };

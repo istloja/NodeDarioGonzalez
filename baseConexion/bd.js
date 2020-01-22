@@ -6,7 +6,7 @@ const conexion = mysql.createConnection({
   host:config.Host,
   user:config.User,
   password:config.Password,
-  database: config.BD,
+  database: config.bd,
 });
 conexion.connect(error=>{
   if (error) throw error;

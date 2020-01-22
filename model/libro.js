@@ -8,8 +8,8 @@ const libro = function(Libro){
   this.categoria_nombre = Libro.categoria_nombre;
 };
 
-libro.obtenerTodos = result =>{
-
+libro.getAll = result =>{
+  console.log("modelo");
   sql.query("SELECT * FROM libro",(error,res) => {
     console.log(res);
     if (error){
