@@ -9,17 +9,27 @@ const libro = function(Libro){
 };
 
 libro.getAll = result =>{
-  console.log("modelo");
   sql.query("SELECT * FROM libro",(error,res) => {
-    console.log(res);
     if (error){
       console.log(error,' error consulta');
       result(null,error);
       return;
     }else {
-      console.log(res);
       result(null,res);
     }
   });
 };
+
+libro.crearNuevoLibro = (nuevoLibro, result) =>{
+  sql.query("INSERT INTO libro SET ?", nuevoLibro, (error,res)=>{
+    if (error) {
+      console.log(error,' error al crear Libro');
+      result(null,error);
+      return;
+    } else {
+      result(null,res);
+    }
+  });
+};
+
 module.exports=libro;

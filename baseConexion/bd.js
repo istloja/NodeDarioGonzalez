@@ -12,4 +12,4 @@ conexion.connect(error=>{
   if (error) throw error;
   console.log("conexion exitosa");
 });
-module.export = conexion;
+module.exports = conexion;
