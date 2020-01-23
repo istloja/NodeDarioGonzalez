@@ -1,8 +1,7 @@
 const modelo = require("../model/libro.js");
-exports.getAll = (req,res)=>{
-  console.log(req.body.codigo);
+exports.obtenerTodos = (req,res)=>{
 
-  modelo.getAll((err,data)=>{
+  modelo.obtenerTodos((err,data)=>{
   if (err){
     res.status(500).send({mensaje:"No se puede obtener los datos"});
   }else{
@@ -29,3 +28,35 @@ exports.crearNuevoLibro = (req,res) => {
       }
   });
 }
+
+exports.eliminarLibro = (req,res) => {
+  const eliminarLibro = req.body.codigo
+
+  modelo.eliminarLibro(eliminarLibro, (error, data) => {
+
+    if (error){
+      res.status(500).send({mensaje:"Error al crear nuevo Libro"});
+    }else{
+      res.send(data);
+      }
+
+  });
+};
+
+exports.editarLibro = (req,res) =>{
+  const codigoLibro = req.body.codigo;
+  const editarLibro = new modelo(req.body);
+
+  modelo.editarLibro(codigoLibro,editarLibro, (error, data) =>{
+
+    if (error){
+      if(error.kind == 'not_found'){
+        res.status(400).send({mensaje:"No se encontro el Libro"});
+      }else{
+        res.status(500).send({mensaje:"Error al crear editar Libro"});
+      }
+    }else{
+      res.send(data);
+    }
+  });
+};
